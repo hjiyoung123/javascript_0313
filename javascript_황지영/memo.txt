@@ -1,0 +1,199 @@
+prompt("")
+  함수/메서드
+  질문을 하는 함수
+  ex) confirm
+
+
+document
+  사용자로부터 값을 받고자 할때
+  문서객체의 최고봉
+  객체/내장 객체
+  기능만 갖고 있는 것이 아닌 속성도 갖고 있음
+  head 와 body
+  문서객체모델
+  dom
+  window > document > html > head > title > text > body
+  window 제이쿼리 반응형 > 화면에 있는 특정한 요소를 가져올 경우
+
+  객체+기능 > 객체와 기능을 쓸때 반드시 온점
+
+
+변수
+  유동성이 있는 값
+  variables > var
+  변수 충돌이 빈번
+  let 지향 > 중복 선언이 불가
+  문자형, 숫자형, 논리형, 빈(Null)
+  큰따옴표 혹은 작은따옴표 > 문자열로 판단
+  따옴표 없이 숫자로 입력 > 숫자로 판단
+
+
+const
+  상수
+  변하지 않는 고정값
+
+
+script 링크 위치 
+  async
+    웹브라우저가 파싱하는 순서
+    자바스크립트 코드가 무겁거나 의존도가 높을 경우
+
+  defer
+    파싱후 javascript
+    <script src="./js/script.js"></script>
+
+
+typeof
+
+
+문자열을 Number로 감싸주면 숫자로 변환
+
+
+연산자
+  산술연산자      + - / %(나눠서 남은 값)
+  대입연산자      += -= /= &=
+  복합대입연산자  = += += ...
+
+
+증감연산자
+  들어가는 위치에 따라 값이 달라짐
+    let num1 = 10;
+    let num2 = 20;
+    let result;
+
+    num1--;
+    document.write(num1, "<br>");
+
+    num1++;
+    document.write(num1, "<br>");
+
+    result = num2++
+    document.write(result, "<br>");
+
+    result = ++num2;
+    document.write(num2, "<br>");
+
+
+비교연산자
+  ==    값이 같다고 판단 (숫자와 문자열을 헷갈려할 수 있음)
+  ===   단순이 값 뿐만 아니라 자료형도 같은지 비교
+  !=    값이 다른지 비교
+    let a = 10;
+    let b = 20;
+    let c = 10;
+    let f = "20";
+    let result;
+
+    result = a > b;
+    document.write(result, "<br>")
+
+    result = a < b;
+    document.write(result, "<br>")
+
+    result = a <= b;
+    document.write(result, "<br>")
+
+    result = f == b;
+    document.write(result, "<br>")
+
+    result = a != b;
+    document.write(result, "<br>")
+
+    result = f === b;
+    document.write(result, "<br>")
+
+
+논리연산자
+  &&    and
+  ||    or
+  !     부정
+
+
+삼항 조건 연산자
+  ?   크다면(조건)
+    let a = 10;
+    let b = 3;
+    let result = a < b ? "javascript" : "Hello";
+    document.write(result);
+
+
+연산자의 우선순위 
+  1.  ()          괄호
+  2.  ++  --  !   증감/논리 연산자not
+  3.  * / %
+  4.  + -
+  5.  < <=  > >=
+  6.  ==  === !=  !==
+  7.  &&
+  8.  || 
+  9.  = +=  -=  *=  /=  %=
+
+
+let name = prompt("당신의 이름은?", "");
+let height = prompt("당신의 키는?", "");
+let weight = prompt("당신의 몸무게는?", "");
+
+let normal_w = (height - 100) * 0.9;
+let result = weight >= normal_w - 5 && weight <= normal_w + 5;
+result = result ? "적정체중입니다." : "적정체중이 아닙니다.";
+document.write(name + "님은" + result);
+
+
+
+let traffic = prompt("교통비를 알려주세요", "ex.3000");
+let eat = prompt("식비를 알려주세요", "ex.6000");
+let drink = prompt("음료비를 알려주세요", "ex.3000");
+
+let normal = Number(traffic) + Number(eat) + Number(drink);
+let result = normal < 10000;
+let result1 = 10000 - normal;
+let result2 = normal - 10000;
+
+result = result ? result1 + "원 아껴쓰셨습니다." : result2 + "원 초과하셨습니다.";
+document.write(result)
+
+
+제어문
+  if
+    0 ""  undefined 을 제외하고 모두 참인 값을 가져옴
+  else
+
+  else if
+   두가지 이상의 조건식
+   조건이 여러개
+
+    let month = prompt("현재는 몇 월 입니까?", "0");
+
+    if(month >= 9 && month <= 11) {
+      document.write("독서하기 좋은 가을이네요!");
+    } else if (month >= 6 && month <= 8) {
+      document.write("여행가기 좋은 여름이네요!");
+    } else if (month >= 3 && month <= 5) {
+      document.write("햇살 가득한 봄이네요!");
+    } else {
+      document.write("스키의 계절, 겨울이네요!");
+    }
+  
+
+  중첩 if문
+    let id = "David";
+    let pw = "1234";
+
+    let user_id = prompt("id를 입력해주세요");
+
+    if(id == user_id) {
+      let user_pw = prompt("pw를 입력해주세요");
+      if(pw == user_pw) {
+        document.write(user_id + "님 반갑습니다.");
+      } else {
+        alert("비밀번호가 일치하지 않습니다!")
+        location.reload();
+      }
+    } else {
+      alert("아이디가 일치하지 않습니다!");
+      location.reload();
+    }
+  
+
+switch문
+  
