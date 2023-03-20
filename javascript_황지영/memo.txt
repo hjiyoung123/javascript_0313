@@ -196,4 +196,42 @@ document.write(result)
   
 
 switch문
+
+
+반복문
+  do while
+    한번은 무조건 실행 (조건이 맞지 않음에도 불구하고)
+    특정 조건이 될때까지 실행
+    알고리즘으로 인해 참의 값을 찾을때까지
   
+  for
+    초기화된 조건식이 참이면 실행
+    반복 횟수가 정해져 있음
+    
+    for(let i = 1; i <= 10; i++) {
+      document.write("반복" + i, "<br>");
+    }
+
+    continue
+    break
+
+객체
+  내장객체
+  문서객체
+
+
+속성
+매서드
+
+
+
+querySelectorAll 
+  가지고 와야하는 요소가 하나 이상일 때
+
+let el of items
+  for(let el of items)
+  반복해서 액션을 취해라
+
+addEventListener 
+  하나가 선택이 되면 다음과 같은 이벤트를 붙여라
+
