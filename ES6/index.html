@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ES6</title>
+</head>
+<body>
+    <h1>es6</h1>
+    <h2>템플릿 문자열</h2>
+    <script>
+        //ESS
+        var str1 = '자바스크립트';
+        var str2 = '기초';
+        var msg = str1 + '-' + str2;
+        var msg2 = `${str1}-${str2}`;
+        var val1 = 10;
+        var val2 = 20;
+        var result = '두 변수의 합은' +(val1+val2)+ '입니다';
+        var result2 = `두 변수의 합은 ${val1+val2} 입니다`;
+        console.log(result2);
+    </script>
+    
+    <h2>전개연산자 spread operator</h2>
+    <script>
+        var arr1 = ['one', 'two'];
+        var arr2 = ['three', 'four'];
+        var arr3 = [arr1[0], arr1[1], arr2[0], arr2[1]];
+        var arr4 = arr1.concat(arr2)
+        var arr5 = [].concat(arr1,arr2);
+        var arr6 = [...arr1,...arr2] //spread 연산자 ...
+        console.log(arr6);
+    </script>
+
+    <h2>가변변수, 불변변수</h2>
+    <script>
+        console.log(i); //호이스팅
+        var i = 0; 
+        i = 2;
+
+        //범위변수 scope {}
+        let num = 1;
+        num = 2;
+        console.log(num);
+
+        // const num1 = 1; //const 변경되면 안될값, 상수 = 상시값
+        // const num1 = 10;
+
+    </script>
+
+    <h2>클래쓰</h2>
+    <script>
+        /*
+        function Rectangle(x, y) {
+            this.height = x;
+            this.width = y;
+        }
+        let shape = new Rectangle(100,80); //height100 width80
+        console.log(shape.height);
+        */
+       class Rectangle{
+        constructor(h,w){
+            this.height = h;
+            this.width = w;
+        }
+       }
+       let shape = new Rectangle(100,80); //height100 width80
+        console.log(shape.height);
+
+    </script>
+
+    <h2>화살표 함수</h2>
+    <script>
+        menu.addEventListener('.click',function(e){
+
+        });
+        menu.addEventListener('.click',(e)=>{
+
+        });
+        menu.addEventListener('.click',e=>{
+
+        });
+        menu.addEventListener('.click',function(x,y){
+            return x + y;
+        });
+        menu.addEventListener('.click',(x,y)=>(x+y){
+            
+        });
+
+        function add(x,y){
+            return x + y;
+        }
+        
+    </script>
+</body>
+</html>

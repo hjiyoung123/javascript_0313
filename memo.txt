@@ -1,0 +1,263 @@
+var fruits = ["apple", "orange", "cherry"];
+console.log(fruits);
+// for 
+var forid = document.querySelector("#for"); //id명
+forid.innerHTML += '<li>' + fruits[0] + '</li>';
+forid.innerHTML += '<li>' + fruits[1] + '</li>';
+forid.innerHTML += '<li>' + fruits[2] + '</li>';
+
+
+
+var fruits = ["apple", "orange", "cherry"];
+console.log(fruits);
+// for 
+
+var forid = document.querySelector("#for"); //id명
+/*
+forid.innerHTML += '<li>' + fruits[0] + '</li>';
+forid.innerHTML += '<li>' + fruits[1] + '</li>';
+forid.innerHTML += '<li>' + fruits[2] + '</li>';
+*/
+
+for(var i=0; i<fruits.length; i++){
+	forid.innerHTML += '<li>' + fruits[i] + '</li>';
+}
+
+
+
+https://docs.google.com/document/d/1mdsgHetX0KdlU4GyUqAeiBVElxspDvWfzeLjCgJ4vnQ/edit
+
+var fruits = ["apple", "orange", "cherry"];
+console.log(fruits);
+// for 
+
+var forid = document.querySelector("#for"); //id명
+var forlist = '';
+
+for(var i=0; i<fruits.length; i++){
+	forlist += '<li>' + fruits[i] + '</li>';
+}
+forid.innerHTML = forlist;
+
+
+//innerText 글씨로 들어감
+//반복문에 순번을 구현하기 쉽지 않음
+
+
+대상.forEach(function(item,index){
+
+})
+
+
+// for each
+var forEach = document.querySelector('#foreach');
+fruits.forEach(function(item,index){
+	forEach.innerHTML += '<li>'+item+index+'</li>';
+});
+
+
+
+// for of
+var i = 0;
+for(fruit of fruits){
+	document.querySelector('#forof').innerHTML += '<li>'+fruit+'</li>';
+}
+
+
+//for in
+var person = {
+	pname:'홍길동',
+	page:'400',
+	pgender:'남성',
+}
+console.log(person['pname']);
+
+
+for(var x in person){
+	document.querySelector('#forin').innerHTML += '<li>'+x+':'+person[x]+'</li>';
+}
+
+
+
+
+
+초기값
+do {
+    반복일
+    증감;
+}while(조건);
+
+
+
+var $menu1 = document.querySelectorAll('.menu1 li');
+var $menu2 = document.querySelectorAll('.menu2 li');
+var $menu3 = document.querySelectorAll('.menu3 li');
+var $menu4 = document.querySelectorAll('.menu4 li');
+//반복문을 이용하여 리스트의 색상을 blue로 변경한다.
+
+// for 
+for(i=0; i<$menu1.length; i++){
+	$menu1[i].style.color = 'blue'
+}
+
+
+// forEach
+$menu2.forEach(function(item){
+	item.style.backgroundColor = 'silver';
+})
+
+
+//for in
+for($menu of $menu3){
+	$menu.style.textDecoration = 'underline';
+}
+
+
+//do / while
+var i = 0;
+do{
+	$menu4[i].style.color = 'blue';
+	i++;
+}while(i<$menu4.length)
+
+
+
+
+객체 = 함수 + 변수
+객체 {
+	변수명: 값,
+	변수명: 값,
+	변수명: 함수
+}
+
+studenta = {
+	eng : 100,
+	math : 90,
+	kor: 100,
+	sum:function(){
+		
+	}
+}
+
+
+node --version
+npm
+node package manager
+npm -v
+
+https://react.dev/learn/start-a-new-react-project
+npx create-next-app my-app
+
+npx create-react-app my-app
+
+
+npm install
+npm start
+
+
+rcc+tab > react create class
+
+npm run build 후 생성된 build파일을 업로드 하면 프론트에서  볼 수 있음
+
+"homepage": "./"
+	경로 재수정
+
+
+
+
+import './App.css';
+
+// function App() {    //함수형
+//   return (
+//     <div>
+//       <div class='App'>
+//         <h1>Hello world</h1>
+//       </div>
+//     </div>
+
+//   );
+// }
+import React, { Component } from 'react'
+
+export default class App extends Component {    //클래쓰형
+  render() {
+    return (
+      <div className='App'>
+        <h1>Hello world</h1>
+      </div>
+    )
+  }
+}
+
+// export default App;
+
+
+
+컴포넌트 이름은 반드시 대문자로 시작
+
+
+props
+	<h1 class="logo">{this.props.title}</h1>
+
+
+chrome 확장프로그램
+	react develop tools
+	개발자코드에서 Component 확인가능
+
+
+
+
+
+
+import './App.css';
+
+import React, { Component } from 'react'
+import Myheader from './components/Myheader';
+import Article from './components/Article';
+import Nav from './components/nav';
+
+export default class App extends Component {
+    render() {
+        return (
+            <div className='App'>
+                <Myheader title="React" desc="Single page Application"/>
+                <Nav/>
+                <Article title="HTML" desc="Hypertext Markup Language"/>
+            </div>
+        )
+    }
+}
+
+
+
+import React, { Component } from 'react'
+
+class Myheader extends Component {
+    render() {
+        return (
+            <header>
+                <h1 class="logo">{this.props.title}</h1>
+                <p>{this.props.desc}</p>
+            </header>
+        )
+    }
+}
+export default Myheader;
+
+
+
+값을 하단에서 부모로 올리는 건 쉬움
+
+
+초기값 설정
+constructor(props){  //상태가 바뀔 수 있는 값은 전부 여기다 넣음
+	super(props);
+	this.state={
+		subject :{title:'React1', desc:"Single page Application"},
+		menus:[
+			{id:1, title:'HTML', desc:"Hypertext Markup Language"},
+			{id:2, title:'CSS', desc:"CSS for design"},
+			{id:3, title:'Javascript', desc:"Javascript is for interactive"},
+		]
+	}
+}
