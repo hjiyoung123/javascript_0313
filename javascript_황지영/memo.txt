@@ -723,3 +723,185 @@ $(function(){
     })
   })
 })
+
+
+mouseout    > 이벤트 대상에서 마우스가 벗어나면 작동
+mouseleave  > 이벤트 대상에서 마우스가 벗어나면 작동
+
+mousemove
+$(function(){
+  $(document).on("mousemove", function(e){
+    $(".posX").text(e.pageX)
+    $(".posY").text(e.pageY)
+  })
+})
+
+scroll 이벤트의 경우 윈도우를 불러옴
+$(window).on("scroll", function(){
+  let sc_top = $(this).scrollTop();
+  let sc_left = $(this).scrollLeft();
+
+  $(".top").text(sc_top)
+  $(".left").text(sc_left)
+})
+
+
+$(function(){
+  $("#user_id_1, #user_pw_1").on("focus", function(){
+    $(this).css({"background-color":"pink"});
+  });
+  $("#user_id_1, #user_pw_1").on("blur", function(){
+    $(this).css({"background-color":"#fff"});
+  });
+
+  $("#frm_2").on("focusin", function(){
+    $(this).css({"background-color":"#fff"});
+  });
+});
+
+
+
+
+<select id="rel_site">
+  <option value="">사이트 선택</option>
+  <option value="www.google.com">구글</option>
+  <option value="www.naver.com">네이버</option>
+  <option value="www.daum.net">다음</option>
+</select>
+<p class="txt"></p>
+
+$(function(){
+  $("#rel_site").on("change", function(){
+    $(".txt").text($(this).val());
+  })
+})
+
+
+아스키코드
+<body>
+  <p>
+    <input type="text" id="user_id" name="user_id">
+  </p>
+</body>
+
+$(function(){
+  $(document).on("keydown", keyEventFnc);
+  function keyEventFnc(e) {
+    let direct = "";
+
+    switch(e.keyCode) {
+      case 37: direct = "LEFT";
+      break;
+      case 38: direct = "TOP";
+      break;
+      case 39: direct = "RIGHT";
+      break;
+      case 40: direct = "BOTTOM";
+      break;
+    }
+
+    if(direct)$("#user_id").val(direct);
+  };
+});
+
+
+
+
+
+<body>
+  <h2>$(this)</h2>
+  <ul class="menuWrap_1">
+    <li><a href="http://www.naver.com">메뉴1</a></li>
+    <li><a href="#">메뉴2</a></li>
+    <li><a href="#">메뉴3</a></li>
+  </ul>
+
+  <h2>Index()</h2>
+  <ul class="menuWrap_2">
+    <li><a href="#">메뉴4</a></li>
+    <li><a href="#">메뉴5</a></li>
+    <li><a href="#">메뉴6</a></li>
+  </ul>
+  <p class="idxNumber"></p>
+</body>
+
+$(function(){
+  $(".menuWrap_1 a").on("click", function(e){
+    e.preventDefault();
+
+    $(".menuWrap_1 a").css({"background-color":"#fff"});
+    $(this).css({"background-color":"#ff0"});
+  });
+
+  $(".menuWrap_2 a").on("click", function(e){
+    e.preventDefault();
+
+    $(".menuWrap_2 a").css({"background-color":"#fff"});
+
+    let idx = $(".menuWrap_2 a").index(this);
+    $(".menuWrap_2 a").eq(idx).css({"background-color":"#0ff"});
+
+    $(".idxNum").text(idx);
+  })
+});
+
+
+
+그룹이벤트    > 단점: 한번세팅한 이벤트는 추가로 이벤트를 넣을 수 없음
+
+$(function(){
+  $(".btn_1").on("mouseover focus", function(){
+    alert("Hello!");
+  });
+});
+
+라이브이벤트  > 
+
+$(function(){
+  $(document).on("mouseover focus", ".btn_1", function(){
+    alert("Hello!");
+  });
+  $(".btn_1").addClass("on");
+});
+
+
+<body>
+  <p class="zoomBtnZone">
+    <button class="zoomOutBtn">-</button>
+    <button class="originBtn">100</button>
+    <button class="zoomInBtn">+</button>
+  </p>
+  <p class="fontSize">14px</p>
+  <div id="wrap">
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. A at obcaecati animi reiciendis accusamus nisi quam facere vitae error! Assumenda dolore ea enim deleniti, fugit laborum error maiores odit magni.
+    Accusantium laudantium ab, quae tenetur commodi optio. Dolor minus, laborum nam quod architecto temporibus repudiandae obcaecati eaque nemo, maxime omnis. Minus natus sapiente ipsa ipsam nulla officia commodi nesciunt corporis.
+    Quis quia cumque corrupti voluptate voluptatem voluptatibus distinctio dolorum non, pariatur reiciendis exercitationem id dolor ratione nesciunt impedit magnam quaerat! Tempora iure, sed in autem sit voluptas doloribus nobis accusamus!
+    Necessitatibus itaque veniam aliquid eos rerum, facere soluta quasi adipisci perferendis cumque neque voluptas amet eligendi possimus fugit accusantium dolorem perspiciatis magnam sunt maiores. Amet voluptate sed unde iste quis?
+    Consectetur iure eum dolores numquam impedit earum aliquam expedita blanditiis. Earum nihil harum dignissimos nemo voluptatum, dicta numquam id fugiat similique libero ratione, ipsam, ipsa eaque adipisci laborum provident suscipit!
+    Magnam quae inventore ipsam excepturi doloribus voluptatum placeat rerum laudantium dolores qui molestiae est distinctio tempore, quis fugit vitae quod aspernatur libero porro accusamus nemo nam quia? Voluptas, distinctio repellat.
+    Assumenda est nulla, unde quis fuga debitis vero, et illum itaque suscipit omnis voluptates illo repudiandae odit quos adipisci vitae? Ipsam et ex voluptatum nam laudantium expedita incidunt. Ex, consectetur.
+    Vel ducimus, sint, ea est perspiciatis consequuntur aperiam ut iure id eos quidem alias dolore, voluptate aut in consectetur asperiores possimus ratione. Amet minima aut, nulla dicta asperiores non id?
+    Saepe ut adipisci laudantium! Sapiente enim animi rerum mollitia, illo omnis dolorum a rem, quas, nesciunt porro recusandae maiores doloribus libero asperiores odit adipisci harum distinctio ab assumenda velit qui.
+    Harum ad consequuntur ex culpa perferendis, sit qui praesentium cumque voluptatem voluptatibus dolorem hic eius esse in eveniet aperiam voluptate distinctio? Voluptatibus facere, cum enim tenetur est quo sapiente nulla.
+  </div>
+</body>
+
+$(function(){
+  let baseFontSize = 14;
+
+  $(".zoomBtnZone button").on("click", zoomInOut);
+  function zoomInOut(){
+    if($(this).hasClass("zoomOutBtn")) {
+      if(baseFontSize <= 8) return false;
+      baseFontSize--;
+    }else if($(this).hasClass("zoomInBtn")){
+      if(baseFontSize >= 20) return false;
+      baseFontSize++;
+    }else {
+      baseFontSize = 14;
+    }
+
+    $(".fontSize").text(baseFontSize + "px");
+    $("body").css({fontSize:baseFontSize + "px"});
+  }
+})

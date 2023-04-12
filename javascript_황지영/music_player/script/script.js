@@ -30,3 +30,30 @@ for(el of lists) {
     e.currentTarget.closest("article").querySelector("audio").play();
   });
 }
+
+// Player Rotation
+const prev = document.querySelector(".btnPrev");
+const next = document.querySelector(".btnNext");
+
+let num = 0;
+prev.addEventListener("click", ()=>{
+  num++;
+  frame.style.transform = `rotate(${deg * num}deg)`;
+  (active === 0) ? active = len : active--;
+  activation(active, lists);
+});
+
+next.addEventListener("click", ()=>{
+  num--;
+  frame.style.transform = `rotate(${deg * num}deg)`;
+  (active === len) ? active = 0 : active++;
+  activation(active, lists);
+});
+
+let active = 0;
+function activation(index, lists){
+  for(let el of lists){
+    el.classList.remove("on");
+  }
+  lists[index].classList.add("on");
+}

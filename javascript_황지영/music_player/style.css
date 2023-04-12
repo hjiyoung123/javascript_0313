@@ -93,7 +93,6 @@ figure article.on {
 
 /* pannel inner */
 figure .inner .pic {
-  border: 1px solid red;
   width: 15vw;
   height: 15vw;
   margin: 0 auto;
@@ -196,4 +195,121 @@ figure .inner .pic.on::after {
 }
 figure .inner .pic.on::before {
   animation: ani2 4s linear infinite;
+}
+
+/* Prev & Next Btn */
+figure .btnPrev {
+  width: 60px;
+  height: 60px;
+  position: absolute;
+  top: 50%;
+  left: 38%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  text-align: center;
+  cursor: pointer;
+}
+figure .btnNext {
+  width: 60px;
+  height: 60px;
+  position: absolute;
+  top: 50%;
+  right: 38%;
+  transform: translate(50%, -50%);
+  display: flex;
+  align-items: center;
+  text-align: center;
+  cursor: pointer;
+}
+figure .btnPrev span {
+  font: 11px/1;
+  color: #fff;
+  opacity: 1;
+  transform: translateX(30%);
+  transition: 0.2s;
+}
+figure .btnPrev:hover span {
+  opacity: 0;
+  transform: translateX(100%);
+}
+figure .btnPrev::before {
+  content: '';
+  display: block;
+  height: 1px;
+  width: 100%;
+  background-color: #fff;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform-origin: left center;
+  transform: rotate(-180deg);
+  transition: 0.5s;
+}
+figure .btnPrev::after {
+  content: '';
+  display: block;
+  height: 1px;
+  width: 100%;
+  background-color: #fff;
+  position: absolute;
+  bottom: 50%;
+  left: 0;
+  transform-origin: left center;
+  transform: rotate(180deg);
+  transition: 0.5s;
+}
+figure .btnPrev:hover::before {
+  transform: rotate(-30deg);
+}
+figure .btnPrev:hover::after {
+  transform: rotate(30deg);
+}
+
+
+
+
+
+figure .btnNext span {
+  font: 11px/1;
+  color: #fff;
+  opacity: 1;
+  transform: translateX(-30%);
+  transition: 0.2s;
+}
+figure .btnNext:hover span {
+  opacity: 0;
+  transform: translateX(-100%);
+}
+figure .btnNext::before {
+  content: '';
+  display: block;
+  height: 1px;
+  width: 100%;
+  background-color: #fff;
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  transform-origin: left center;
+  /* transform: rotate(-180deg); */
+  transition: 0.5s;
+}
+figure .btnNext::after {
+  content: '';
+  display: block;
+  height: 1px;
+  width: 100%;
+  background-color: #fff;
+  position: absolute;
+  bottom: 50%;
+  left: 100%;
+  transform-origin: left center;
+  /* transform: rotate(180deg); */
+  transition: 0.5s;
+}
+figure .btnNext:hover::before {
+  transform: rotate(150deg);
+}
+figure .btnNext:hover::after {
+  transform: rotate(-150deg);
 }
